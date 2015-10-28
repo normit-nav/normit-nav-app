@@ -1,0 +1,78 @@
+New Ubuntu 12.04 install with AMD gpu
+
+1)
+Install os
+---------------------
+Insert cd and follow directions
+
+2)
+Update system
+---------------------
+Use update manager and install all. 
+REBOOT.
+
+3)
+Graphics card drivers
+---------------------
+System Settings -> Additional Drivers -> ATI/AMD proprietary FGLRX graphics driver (post-release updates). 
+REBOOT.
+
+4)
+AMD SDK
+---------------------
+http://developer.amd.com/tools-and-sdks/heterogeneous-computing/amd-accelerated-parallel-processing-app-sdk/downloads/
+- AMD APP SDK built for 64-bit Linux®
+> sudo sh Install-AMD-APP.sh
+
+5)
+OpenCL
+---------------------
+> sudo apt-get install opencl-headers
+
+6)
+Epiphan
+---------------------
+http://www.epiphan.com/downloads/linux/
+> sudo dpkg -i vga2usb-3.28.0.16-ubuntu-3.2.0-54-generic-x86_64
+> whoami
+	dev
+> sudo usermod -a --groups uucp,dialout dev
+#NOTE: This will install the driver "USB+V4L Extension Driver" under additional drivers.
+> REBOOT.
+> cd /dev
+> sudo chmod a+rwx vga2usb0
+
+7)
+Terminal
+---------------------
+> cd Ubuntu12.04_AMD
+> sudo sh ./ubuntu_reformat_terminal.sh
+
+8)
+NDI
+---------------------
+> cd Ubuntu12.04_AMD
+> sudo sh ./ubuntu_ndi_setup.sh
+
+9)
+Git
+---------------------
+> cd Ubuntu12.04_AMD
+> sudo sh ./ubuntu_git_setup.sh
+> Connect to Server -> SSH
+	Server: medtek.sintef.no
+	User name: medtek
+	Password: <password>
+> medtek.sintef.no -> /Volumes/MedTekDisk/Software/CustusX/Linux_accessories/ssh -> copy id_rsa.pub
+> cd ~/.ssh -> paste id_rsa.pub
+> sh ./install_github_key_ca2.sh (DO NOT USE SUDO!)
+
+10)
+Additional packages
+---------------------
+> sudo sh ./ubuntu_packages.sh
+
+11)
+CustusX installer
+---------------------
+> cxInstaller.py --full --all -j8 -t Debug --isb_password=<password>

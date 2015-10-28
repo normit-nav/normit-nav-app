@@ -1,0 +1,7 @@
+How to set starting operating system:
+
+- Edit /etc/default/grub: (sudo pico /etc/default/grub)
+Set GRUB_DEFAULT to the wanted number (starts with 0)
+
+- Update grub:
+sudo update-grub

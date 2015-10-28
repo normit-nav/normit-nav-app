@@ -1,0 +1,20 @@
+Download old nvidia driver
+1. Go to: http://www.nvidia.co.uk/Download/Find.aspx?lang=en-uk
+2. Quadro 4000, Linux 64 bit -> Search
+3. Download  	Linux x64 (AMD64/EM64T) Display Driver 	295.75 	31.8.2012 
+	a) http://uk.download.nvidia.com/XFree86/Linux-x86_64/295.75/NVIDIA-Linux-x86_64-295.75.run
+4. Remove all nvidia related stuff: $> sudo apt-get remove --purge nvidia-*
+5. $> sudo reboot
+6. Stop the windows service: $> sudo /etc/init.d/lightgdm stop
+7. Ctrl+Alt+F5
+Login
+8. Install driver driver: $> sudo sh *download_path*/NVIDIAxxxxxx.295.xxxx.run
+9. $> sudo reboot
+10. Stop the windows service: $> sudo /etc/init.d/lightgdm stop
+11. Ctrl+Alt+F5
+12. Install driver driver: $> sudo sh *download_path*/NVIDIAxxxxxx.295.xxxx.run
+13. Si Ja til alt.
+14. $> sudo reboot
+15. Link to correct GL version in Cmake (For VTK, CustusX and Tube-Segmentation-framework): OPENGL_gl_LIBRARY = /usr/lib/libGL.so (NOT /usr/lib/x86_64-linux-gnu/libGL.so)
+16. Run cmake again. make sure OpenGl links to /usr/lib/OpenGl.so
+17. make and run CustusX
