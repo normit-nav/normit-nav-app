@@ -45,8 +45,7 @@ class NorMITNavApp(cx.build.cxComponents.CppComponent):
         add('CX_APP_CustusX:BOOL', 'OFF');
         add('CX_APP_NorMITNav:BOOL', 'ON');
         add('CX_OPTIONAL_CONFIG_ROOT:PATH', '%s/config'%self.sourcePath());
-        #add('CX_CUSTUS_SINTEF:BOOL', 'ON');
-        #set (CX_OPTIONAL_CONFIG_ROOT ${CustusX_SOURCE_DIR}/../../CustusXSetup/CustusXSetup/config)
+        add('CX_EXTERNAL_PLUGIN_org_custusx_normit_shared', '%s/org.custusx.normit.shared' % self.sourcePath())
 
 
 # ---------------------------------------------------------
