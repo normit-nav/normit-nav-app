@@ -24,13 +24,17 @@ class PrivateControlData(cx.build.cxInstallData.Common):
         super(PrivateControlData, self).__init__()
         
         self.main_branch = "develop"
+        # for the build of NorMIT-nav on the custusx.org website
         user = "custusx"
-        server = "mtwiki.sintef.no"
-        self.publish_release_target                 = cx.utils.cxSSH.RemoteServerID(server, "uploads/normit/nav/releases", user)
-        self.publish_developer_documentation_target = cx.utils.cxSSH.RemoteServerID(server, "uploads/normit/nav/developer_doc", user)
-        self.publish_user_documentation_target      = cx.utils.cxSSH.RemoteServerID(server, "uploads/normit/nav/user_doc", user)
-        self.publish_coverage_info_target           = cx.utils.cxSSH.RemoteServerID(server, "uploads/normit/nav/gcov", user)
-        self.gitrepo_internal_site_base = "ssh://mtwiki.sintef.no/storage/mtwiki/git" 
+        server = "sintefweb07.sintef.no"
+        root_folder = '/uploads/normit'
+        self.publish_release_target                 = cx.utils.cxSSH.RemoteServerID(server, "%s/releases"%root_folder, user)
+        self.publish_developer_documentation_target = cx.utils.cxSSH.RemoteServerID(server, "%s/developer_doc"%root_folder, user)
+        self.publish_user_documentation_target      = cx.utils.cxSSH.RemoteServerID(server, "%s/user_doc"%root_folder, user) 
+        self.publish_coverage_info_target           = cx.utils.cxSSH.RemoteServerID(server, "%s/gcov"%root_folder, user) 
+
+        self.gitrepo_internal_site_base = "user@example.com/path/to/folder" #intended for use with "git checkout ssh://%s"
+        self.gitrepo_open_site_base = "git@github.com:SINTEFMedtek"  
 
         self.system_base_name = "NorMIT-nav"
 
