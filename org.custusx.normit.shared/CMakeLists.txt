@@ -1,5 +1,9 @@
 project(org_custusx_normit_shared)
 
+find_package(NorMIT)
+include_directories( ${NorMIT_INCLUDE_DIRS} )
+link_directories (${NorMIT_LIBRARY_DIRS})
+
 set(PLUGIN_export_directive "${PROJECT_NAME}_EXPORT")
 
 set(PLUGIN_SRCS
@@ -31,6 +35,7 @@ set(PLUGIN_target_libraries
     cxResourceWidgets
     cxPluginUtilities
     cxResource
+	NorMIT
 )
 
 set(PLUGIN_OUTPUT_DIR "")

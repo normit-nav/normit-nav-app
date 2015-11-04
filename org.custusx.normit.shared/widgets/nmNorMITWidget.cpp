@@ -10,6 +10,7 @@
 #include <QDesktopServices>
 
 #include "nmNorMITWidget.h"
+#include "nmExampleClass.h"
 
 namespace cx
 {
@@ -20,6 +21,8 @@ SharedWidget::SharedWidget(QWidget* parent) :
 	QVBoxLayout* layout;
 	layout = new QVBoxLayout(this);
 	layout->addWidget(new QLabel("Hello NorMIT"));
+
+	nm::ExampleClass example;
 }
 
 
