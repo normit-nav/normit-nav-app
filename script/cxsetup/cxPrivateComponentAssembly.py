@@ -27,7 +27,7 @@ class PrivateControlData(cx.build.cxInstallData.Common):
         # for the build of NorMIT-nav on the custusx.org website
         user = "custusx"
         server = "sintefweb07.sintef.no"
-        root_folder = '/uploads/normit/nav'
+        root_folder = 'uploads/normit/nav'
         self.publish_release_target                 = cx.utils.cxSSH.RemoteServerID(server, "%s/releases"%root_folder, user)
         self.publish_developer_documentation_target = cx.utils.cxSSH.RemoteServerID(server, "%s/developer_doc"%root_folder, user)
         self.publish_user_documentation_target      = cx.utils.cxSSH.RemoteServerID(server, "%s/user_doc"%root_folder, user) 
