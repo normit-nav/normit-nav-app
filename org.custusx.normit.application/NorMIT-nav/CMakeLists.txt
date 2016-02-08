@@ -18,7 +18,7 @@ set(CX_COPYRIGHT_TEXT "Copyright SINTEF Medical Technology. All rights reserved"
 
 # additions to defaults from cx_initialize_macosx_bundle()
 if(APPLE)
-    set(ICNS_FILE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/icons/normit/NorMIT.icns)
+    set(ICNS_FILE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/icons/logo/NorMIT.icns)
 	# For Apple set the icns file containing icons
 	set_source_files_properties(${ICNS_FILE_PATH}
 								PROPERTIES MACOSX_PACKAGE_LOCATION Resources)  # set where in the bundle to put the icns file
