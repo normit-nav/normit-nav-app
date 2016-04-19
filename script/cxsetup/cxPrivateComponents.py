@@ -25,17 +25,20 @@ class NorMITNavApp(cx.build.cxComponents.CppComponent):
         return '%s/%s' % (self.controlData.getWorkingPath(), self.sourceFolder())    
     def sourceFolder(self):
         return cxCustusXFinder.RepoLocations().getPrivateRepoFolder()
-    def _rawCheckout(self):
-        self._getBuilder().gitClone(self.gitRepository(), self.sourceFolder())
     def update(self):
         self._getBuilder().gitCheckoutDefaultBranch()    
     def configure(self):
         pass
     def build(self):
         pass
-    def gitRepository(self):
-        base = self.controlData.gitrepo_internal_site_base
-        return 'git@github.com:normit-nav/normit-nav-app.git'   
+    def repository(self):
+        # In the default case we override to use normit-nav instead of SINTEFMedtek on github:
+        # otherwise use the main_site_base.
+        if self.controlData.gitrepo_open_site_base == self.controlData.gitrepo_main_site_base:
+            base =  'git@github.com:normit-nav' 
+        else:
+            base =  self.controlData.gitrepo_main_site_base  
+        return '%s/normit-nav-app.git' % base   
     def makeClean(self):
         pass
     def pluginPath(self):
@@ -54,16 +57,13 @@ class NorMITLib(cx.build.cxComponents.CppComponent):
         return 'Shared Library for NorMIT'
     def path(self):
         return '%s/%s' % (self.controlData.getWorkingPath(), self.sourceFolder())    
-    def _rawCheckout(self):
-        self._getBuilder().gitClone(self.gitRepository(), self.sourceFolder())
     def update(self):
         self._getBuilder().gitCheckoutDefaultBranch()    
     def configure(self):
         builder = self._getBuilder()
         add = builder.addCMakeOption
         builder.configureCMake()
-    def gitRepository(self):
-        base = self.controlData.gitrepo_internal_site_base
+    def repository(self):
         return 'git@github.com:normit-nav/normit-lib.git'   
     def makeClean(self):
         pass
