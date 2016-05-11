@@ -17,14 +17,17 @@ import cx.build.cxComponentAssembly
 import cxPrivateComponents
 import cx.build.cxInstallData
 import cx.utils.cxSSH
+import cxCustusXFinder
+import cxRepoHandler
 
 class PrivateControlData(cx.build.cxInstallData.Common):
     def __init__(self):
         ''
         super(PrivateControlData, self).__init__()
         
-        self.main_branch = "develop"
-        # for the build of NorMIT-nav on the custusx.org website
+        
+        private_folder = cxCustusXFinder.RepoLocations().getPrivateRepoPath()
+        self.main_branch = cxRepoHandler.getBranchForRepo(private_folder, fallback='develop')
         user = "custusx"
         server = "sintefweb07.sintef.no"
         root_folder = 'uploads/normit/nav'
