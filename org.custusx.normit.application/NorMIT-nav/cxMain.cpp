@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
   app.setOrganizationName("NorMIT");
   app.setOrganizationDomain("www.normit.no");
   app.setApplicationName("NorMIT-nav");
-  app.setWindowIcon(QIcon(":/normit/icons/normit/NorMIT.png"));
+  app.setWindowIcon(QIcon(":/normit/icons/logo/NorMIT.png"));
   app.setAttribute(Qt::AA_DontShowIconsInMenus, false);
   app.setApplicationVersion(CustusX_VERSION_STRING);
 

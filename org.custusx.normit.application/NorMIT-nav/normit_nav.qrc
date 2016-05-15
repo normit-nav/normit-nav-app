@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/normit">
-        <file>icons/normit/NorMIT.png</file>
-        <file>icons/normit/NorMIT.icns</file>
-        <file>icons/normit/NorMIT.ico</file>
+        <file>icons/logo/NorMIT.png</file>
+        <file>icons/logo/NorMIT.icns</file>
+        <file>icons/logo/NorMIT.ico</file>
     </qresource>
 </RCC>
