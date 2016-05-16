@@ -3,6 +3,7 @@ project(org_custusx_normit_shared)
 find_package(NorMIT)
 include_directories( ${NorMIT_INCLUDE_DIRS} )
 link_directories (${NorMIT_LIBRARY_DIRS})
+cx_install_add_library_dirs(${NorMIT_LIBRARY_DIRS})
 
 set(PLUGIN_export_directive "${PROJECT_NAME}_EXPORT")
 
