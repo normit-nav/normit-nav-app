@@ -74,7 +74,7 @@ class RepoHandler:
             return
         
         print '*** %s will be cloned in [%s]' % (self.getName(), self.root_path)
-        doprompt = not (self.silent or args.silent_mode)
+        doprompt = not (self.silent or getattr(self.args, 'silent_mode', False))
         self._promptToContinue(doprompt)
         
         runShell('git clone %s %s' % (self.getUrl(), self.repo_path), self.root_path)
