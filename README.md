@@ -12,4 +12,4 @@ However, the script to be run should be:
 	git clone git@github.com:normit-nav/normit-nav-app.git NN/NN
 	./NN/NN/script/cxPrivateInstaller.py --full --all -t Release --user_doc
 
-Run `cxPrivateInstaller.py` -h for more options.
+Run `cxPrivateInstaller.py -h` for more options.
