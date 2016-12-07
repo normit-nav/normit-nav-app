@@ -50,5 +50,26 @@ class NorMITNavApp(cx.build.cxComponents.CppComponent):
         add('CX_OPTIONAL_CONFIG_ROOT:PATH', '%s/config'%self.sourcePath());
         add('CX_EXTERNAL_PLUGIN_org_custusx_normit_shared', '%s/org.custusx.normit.shared' % self.sourcePath())
 
+class NorMITLib(cx.build.cxComponents.CppComponent):
+    def name(self):
+        return "normit-lib"
+    def help(self):
+        return 'Shared Library for NorMIT'
+    def path(self):
+        return '%s/%s' % (self.controlData.getWorkingPath(), self.sourceFolder())    
+    def update(self):
+        self._getBuilder().gitCheckoutDefaultBranch()    
+    def configure(self):
+        builder = self._getBuilder()
+        add = builder.addCMakeOption
+        builder.configureCMake()
+    def repository(self):
+        return 'git@github.com:normit-nav/normit-lib.git'   
+    def makeClean(self):
+        pass
+    def addConfigurationToDownstreamLib(self, builder):
+        add = builder.addCMakeOption
+        add('NorMIT_DIR:PATH', '%s'%self.buildPath());
+
 # ---------------------------------------------------------
 
