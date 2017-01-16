@@ -26,8 +26,8 @@ class PrivateControlData(cx.build.cxInstallData.Common):
         super(PrivateControlData, self).__init__()
         
         
-        private_folder = cxCustusXFinder.RepoLocations().getPrivateRepoPath()
-        self.main_branch = cxRepoHandler.getBranchForRepo(private_folder, fallback='develop')
+        self.main_repo_folder = cxCustusXFinder.RepoLocations().getPrivateRepoPath()
+        self.main_branch = cxRepoHandler.getBranchForRepo(self.main_repo_folder, fallback='develop')
         user = "custusx"
         server = "sintefweb07.sintef.no"
         root_folder = 'uploads/normit/nav'
