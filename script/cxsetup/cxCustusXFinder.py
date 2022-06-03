@@ -13,7 +13,7 @@ import sys
 import subprocess
 import pprint
 import argparse
-import cxRepoHandler
+from . import cxRepoHandler
 
 import argparse
 

@@ -13,7 +13,7 @@
 import platform
 
 import cx.build.cxComponents
-import cxCustusXFinder
+from . import cxCustusXFinder
 #import cx.cxShell
 
 class NorMITNavApp(cx.build.cxComponents.CppComponent):
