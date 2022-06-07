@@ -14,11 +14,11 @@ import platform
 
 import cx.build.cxComponents
 import cx.build.cxComponentAssembly
-import cxPrivateComponents
+from . import cxPrivateComponents
 import cx.build.cxInstallData
 import cx.utils.cxSSH
-import cxCustusXFinder
-import cxRepoHandler
+from . import cxCustusXFinder
+from . import cxRepoHandler
 
 class PrivateControlData(cx.build.cxInstallData.Common):
     def __init__(self):
