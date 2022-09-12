@@ -29,7 +29,7 @@ class PrivateControlData(cx.build.cxInstallData.Common):
         self.main_repo_folder = cxCustusXFinder.RepoLocations().getPrivateRepoPath()
         self.main_branch = cxRepoHandler.getBranchForRepo(self.main_repo_folder, fallback='develop')
         user = "custusx"
-        server = "sintefweb07.sintef.no"
+        server = "a43-p1-web005.sintef.no"
         root_folder = 'uploads/normit/nav'
         self.publish_release_target                 = cx.utils.cxSSH.RemoteServerID(server, "%s/releases"%root_folder, user)
         self.publish_developer_documentation_target = cx.utils.cxSSH.RemoteServerID(server, "%s/developer_doc"%root_folder, user)
